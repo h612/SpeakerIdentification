@@ -1,4 +1,5 @@
 # SpeechRecognition
+![speechtotext](https://github.com/h612/Speech-recognition/assets/23230497/8e244794-ff24-412e-8aea-0f3bbcf27df7)
 
 #Requirements:
 1.	Record the meeting discussion voice
