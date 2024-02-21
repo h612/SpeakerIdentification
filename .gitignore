@@ -1,0 +1,8 @@
+/flacData/
+/fullConversation/
+/sound_meeting_LiveTest/
+/testAudio/
+*.wav
+*.flac
+Copy_of_license.txt
+*.json
