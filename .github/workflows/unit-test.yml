@@ -1,0 +1,26 @@
+name: Unit Tests
+
+on:
+  push:
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Julia
+        uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.11'  
+      - name: Instantiate packages
+        run: julia -e 'using Pkg; Pkg.instantiate(); Pkg.resolve()'
+      - name: Build project
+        uses: julia-actions/julia-buildpkg@v1
+
+      - name: Run tests
+        uses: julia-actions/julia-runtest@v1
