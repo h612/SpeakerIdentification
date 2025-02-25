@@ -6,11 +6,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: julia-actions/setup-julia@v1
-        with:
-          version: '1.10'
+      - name: Checkout Repository
+        uses: ./github/actions/checkout  # Using locally copied checkout action
+
+      - name: Install Julia Manually
+        run: |
+          wget https://julialang-s3.julialang.org/bin/linux/x64/1.10/julia-1.10.0-linux-x86_64.tar.gz
+          tar -xzf julia-1.10.0-linux-x86_64.tar.gz
+          echo "$(pwd)/julia-1.10.0/bin" >> $GITHUB_PATH
+          julia --version
+
       - name: Install Dependencies
         run: julia --project=@. -e 'using Pkg; Pkg.instantiate()'
+
       - name: Run Tests
         run: julia --project=@. test/runtests.jl
