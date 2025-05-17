@@ -13,9 +13,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Julia
-        uses: julia-actions/setup-julia@v2
+        uses: h612/setup-julia@v2
         with:
-          version: '1.9'  # or whatever version you use
+          version: '1.9'  
 
       - name: Build project
         uses: julia-actions/julia-buildpkg@v1
